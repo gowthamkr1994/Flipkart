@@ -1,0 +1,21 @@
+{%extends 'shop/layout.html'%}
+{%block title%}Login{%endblock%}
+{% block status %}<p>{{ status }}</p>{% endblock %}
+{% if form.errors %}
+  <p>There is something wrong with your inputs</p>
+{% endif %}
+
+{% if next%}
+<p>You can't access that page</p>
+{% endif %}
+{%block extends%}
+<h3>Login</h3>
+<p>Enter your credentials</p>
+<form action="{% url 'login' %}" method="POST">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Login">
+  <!--<input type="hidden" name="next" value="{{ next }}">-->
+</form>
+{% endblock %}
+<!--todo add remember rem functionality-->

@@ -1,0 +1,30 @@
+{%extends 'shop/layout.html'%}
+{%block title%}Home{%endblock%}
+{%block extends%}
+
+<style>
+    img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+</style>
+<script>
+function Addtocart()
+    onclick.name
+</script>
+<h1>Home page</h1>
+<br/>
+<h3>Products available</h3>
+<br/>
+<form action="\cart" method="get">
+    {% csrf_token %}
+<ul>
+{% for p in product %}
+    <img src="media/{{ p.image }}">
+    <Pre><li>{{ p.name }}</li><li>Price: {{ p.price }}/-</li><li><input type="submit" value="AddTo Cart" name="cart"id="{{ p.id }}"></li><br/></Pre>
+{%endfor%}
+</ul>
+</form>
+{%endblock%}
